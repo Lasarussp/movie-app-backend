@@ -21,7 +21,7 @@ router.get("/", async function (request, response) {
   response.send(movies);
 });
 
-//! localhost:4000/movies/id using mongodb
+//! localhost:5000/movies/id using mongodb
 router.get("/:id", async function (request, response) {
   const { id } = request.params;
   const movie = await moviesGetById(id);

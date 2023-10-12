@@ -10,7 +10,6 @@ import { auth } from "./middleware/auth.js";
 //dotenv setup;
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
 
 //database setup;
 // const MONGO_URL = "mongodb://127.0.0.1";
@@ -29,13 +28,15 @@ const corsOptions = {
 //! middleware = express.json() it convert json to JS object
 // it is a new method every post method using js object
 // app.use --> intercept --> apply express.json()
+
 app.use(express.json());
 app.use(cors(corsOptions));
-//localhost:4000 home
+
+//localhost:5000 home
 app.get("/", function (request, response) {
-  response.send("🙋‍♂️, 🌏 🎊✨🤩 heelo world");
+  response.send(" Welcome to our Movie App...!✨✨😉⭐");
 });
-// //! localhost:4000/movies/id with id
+// //! localhost:5000/movies/id with id
 // app.get("/movies/:id", function (request, response) {
 //   const { id } = request.params;
 //   console.log(request.params, id);
@@ -47,11 +48,13 @@ app.get("/", function (request, response) {
 //  /  ? response.send(movie)
 //     : response.status(404).send({ message: "Movie not Found" });
 // });
-// localhost:4000 movies
+// localhost:5000 movies
 
+//routes;
 app.use("/movies", moviesRouter);
 app.use("/user", userRouter);
 
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
 
 export { client };
